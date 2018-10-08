@@ -34,6 +34,10 @@ if($totalAprOrders !=0)
 else{
     $approvedOrder=0;
 }
+$countChats="SELECT * FROM `chat` WHERE user_id='6'";
+$countC = mysqli_query($conn, $countChats);
+$totalChatsReceived=mysqli_num_rows($countC);
+
 
 
 

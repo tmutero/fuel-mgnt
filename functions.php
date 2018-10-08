@@ -39,6 +39,9 @@
 		$email       =  e($_POST['email']);
 		$password_1  =  e($_POST['password_1']);
 		$password_2  =  e($_POST['password_2']);
+		$phone=e($_POST['phone']);
+        $branch_name=e($_POST['branch_name']);
+        $address=e($_POST['address']);
 
 		// form validation: ensure that the form is correctly filled
 		if (empty($username)) { 
@@ -74,8 +77,8 @@
 				// get id of the created user
 				$logged_in_user_id = mysqli_insert_id($db);
 
-                $query = "INSERT INTO branch (user_id) 
-						  VALUES('$logged_in_user_id')";
+                $query = "INSERT INTO `branch`(`branch_name`, `address`, `user_id`) VALUES ('$branch_name','$address','$logged_in_user_id')";
+
 
                 mysqli_query($db, $query);
 

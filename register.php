@@ -34,6 +34,16 @@
                         <input type="email" class="form-control" placeholder="Email" name="email" value="<?php echo $email; ?>">
                     </div>
                     <div class="form-group">
+                        <label>Branch Name</label>
+                        <input class="form-control" placeholder="Branch name" name="branch_name" type="text" value="">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea class="form-control" placeholder="Address " name="address" type="text" value=""></textarea>
+                    </div>
+
+                    <div class="form-group">
                         <label>Password</label>
                         <input type="password" class="form-control" placeholder="Password" name="password_1" >
                     </div>

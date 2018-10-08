@@ -6,12 +6,13 @@ require_once('conn.php');
 
 if(isset($_GET['msg']))
 {
+
 $msg = $_GET["msg"];
 
 $user = $_GET["userID"];
 
 
-$sql = "INSERT INTO `comments`( `comment`,`topic_id` ,`username`) VALUES ('$msg','$topic_id','$user')";
+$sql = "INSERT INTO `chat`( `message`, `user_id`, `date_created`) VALUES ('$msg', '$user', now())";
 
 echo $sql;
 

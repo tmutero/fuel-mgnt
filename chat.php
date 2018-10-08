@@ -26,7 +26,7 @@
            <div class="row">
 
 
-               <section class="col-lg-6 connectedSortable">
+               <section class="col-lg-5 connectedSortable">
                    <div class="box box-success">
                        <div class="box-header">
                            <i class="fa fa-comments-o"></i>
@@ -43,28 +43,8 @@
                        </div>
                        <div class="box-body chat" id="chat-box">
 
-                           <div class="item">
 
-                               <div class="left clearfix"><span class="chat-img pull-left">
-								<img src="assets/dist/img/user2-160x160.jpg" width="50" height="50" alt="User Avatar" class="img-circle" />
-								</span>
-                                   <div class="chat-body clearfix">
-                                       <div class="header"><strong class="primary-font">John Doe</strong> <small class="text-muted">32 mins ago</small></div>
-                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ante turpis, rutrum ut ullamcorper sed, dapibus ac nunc.</p>
-                                   </div>
-                               </div>
-                           </div>
-
-                           <div class="item">
-                               <div class="right clearfix"><span class="chat-img pull-right">
-								<img src="assets/dist/img/user3-128x128.jpg" width="50" height="50" alt="User Avatar" class="img-circle" />
-								</span>
-                                   <div class="chat-body clearfix">
-                                       <div class="header"><strong class="pull-left primary-font">Jane Doe</strong> <small class="text-muted">6 mins ago</small></div>
-                                       <p><div id="chat_response"></div></p>
-                                   </div>
-                               </div>
-                           </div>
+                       <div id="chat_response"></div>
 
 
 
@@ -171,7 +151,7 @@
 
                 document.getElementById("txtmsg").value = "";
             }
-            alert(strmsg);
+
 
 
             url += "?userID=" + userID + "&msg=" + strmsg;

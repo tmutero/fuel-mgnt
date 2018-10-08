@@ -166,7 +166,7 @@
                     <a href="chat.php">
                         <i class="fa fa-envelope"></i> <span>Chats</span>
                         <span class="pull-right-container">
-              <small class="label pull-right bg-green"></small>
+              <small class="label pull-right bg-green"><?php echo $totalPlacedOrders;?></small>
 
             </span>
                     </a>
