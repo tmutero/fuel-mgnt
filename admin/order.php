@@ -6,7 +6,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Branch List
+            Order Details
 
         </h1>
         <ol class="breadcrumb">
@@ -22,24 +22,18 @@
             <div class="col-xs-12">
 
                 <div class="box">
-                    <div class="box-header">
-                        <div class="col-md-3">
-                            <h3 class="box-title">Order</h3>
-                        </div>
-
-
-
-                    </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                             <tr>
                                 <th>Product Ordered</th>
-                                <th> Transcation Code</th>
-                                <th>Price</th>
-                                <th>Status</th>
+                                <th> Order Code</th>
+                                <th>Unit Price</th>
+                                <th>Quantity</th>
+                                <th>Total Price</th>
                                 <th>Date Created</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -47,7 +41,7 @@
 
                             <?php
                             include('../conn.php');
-                            $select = "SELECT * FROM
+                            $select = "SELECT o.id as id, o.price,o.transaction_code,p.name,o.datecreated,o.quantity,o.status FROM
                             `orders` o JOIN  product p WHERE  o.product_id=p.id ";
                             $run_select = mysqli_query($conn, $select);
                             while ($rows = mysqli_fetch_array($run_select)) {
@@ -55,16 +49,17 @@
                                 $transaction_code = $rows['transaction_code'];
                                 $productName = $rows['name'];
                                 $datecreated = $rows['datecreated'];
-                                $id=$rows['id'];
+                                $quantity=$rows['quantity'];
+                                $total_price=$rows['price'];
 
-                                if ($rows['status']=='Approved') {
+                                if ($rows['status']=="approved") {
                                     $status="success";
-                                    $icon='Approved';
+                                    $icon='approved';
                                     $checked='';
 
                                 } else {
                                     $status="danger";
-                                    $icon='Pending';
+                                    $icon='pending';
                                     $checked = 'disabled';
                                 }
                                 ?>
@@ -72,12 +67,15 @@
                                     <td><?php echo $productName; ?></td>
                                     <td><?php echo $transaction_code; ?></td>
                                     <td><?php echo $price; ?></td>
+                                    <td><?php echo $quantity;?></td>
+                                    <td><?php echo $total_price;?></td>
+                                    <td><?php echo $datecreated; ?></td>
 
                                     <td class="<?php echo $status?>"><?php echo $icon;?></td>
 
-                                    <td><?php echo $datecreated; ?></td>
-                                    <td>
-                                    </td>
+
+                                    <td class='text-center'><a href='#' id="<?php echo  $rows["id"];?>" class='aprove'><span class='glyphicon glyphicon-user' aria-hidden='true'>Approve</span></a></td>
+
 
 
                                 </tr>
@@ -90,10 +88,12 @@
                             <tfoot>
                             <tr>
                                 <th>Product Ordered</th>
-                                <th> Transcation Code</th>
-                                <th>Price</th>
-                                <th>Status</th>
+                                <th> Order Code</th>
+                                <th>Unit Price</th>
+                                <th>Quantity</th>
+                                <th>Total Price</th>
                                 <th>Date Created</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                             </tfoot>
@@ -112,6 +112,30 @@
 
     <!-- /.content -->
 </div>
+<script type="text/javascript">
+    $(function () {
+        $(".aprove").click(function () {
 
+            var element = $(this);
+            var appid = element.attr("id");
+            var info = appid;
+
+
+            if (confirm("Are you sure you want to approve this?")) {
+                $.ajax({
+                    type: "POST",
+                    url: "approve_order.php",
+                    data: {info: info},
+                    success: function () {
+                    }
+                });
+                $(this).parent().parent().fadeOut(300, function () {
+                    $(this).remove();
+                });
+            }
+            return false;
+        });
+    });
+</script>
 
 <?php include('footer.php');?>

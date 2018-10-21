@@ -39,6 +39,10 @@
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <script src="assets/jquery-1.12.3.min.js"></script>
+    <script src="assets/bootstrap-datepicker1.js"></script>
+    <link rel="stylesheet" href="assets/datepicker.css">
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -162,11 +166,11 @@
             </span>
                     </a>
                 </li>
-               <li>
+                <li>
                     <a href="chat.php">
                         <i class="fa fa-envelope"></i> <span>Chats</span>
                         <span class="pull-right-container">
-              <small class="label pull-right bg-green"><?php echo $totalPlacedOrders;?></small>
+              <small class="label pull-right bg-green"><?php echo $totalPlacedOrders; ?></small>
 
             </span>
                     </a>

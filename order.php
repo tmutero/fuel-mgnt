@@ -53,8 +53,10 @@
                             <thead>
                             <tr>
                                 <th>Product Ordered</th>
-                                <th> Transcation Code</th>
-                                <th>Price</th>
+                                <th> Order Code</th>
+                                <th>Unit Price</th>
+                                <th>Quantity</th>
+                                <th>Total Price</th>
                                 <th>Status</th>
                                 <th>Date Created</th>
                             </tr>
@@ -63,7 +65,7 @@
 
                             <?php
                             include('conn.php');
-                            $select = "SELECT  o.price ,o.transaction_code, o.status, p.name , o.datecreated FROM
+                            $select = "SELECT  o.price ,o.transaction_code, o.status, p.name , o.datecreated,o.quantity,o.unit_price FROM
                             `orders` o JOIN  product p WHERE  o.product_id=p.id AND user_id='$userId'";
                             $run_select = mysqli_query($conn, $select);
                             while ($rows = mysqli_fetch_array($run_select)) {
@@ -72,10 +74,15 @@
                                 $status = $rows['status'];
                                 $productName = $rows['name'];
                                 $datecreated = $rows['datecreated'];
+                                $unit_price=$rows['unit_price'];
+                                $quantity=$rows['quantity'];
                                 ?>
                                 <tr>
                                     <td><?php echo $productName; ?></td>
                                     <td><?php echo $transaction_code; ?></td>
+                                    <td><?php echo $unit_price;?></td>
+                                    <td><?php echo $quantity;?></td>
+
                                     <td><?php echo $price; ?></td>
                                     <td><?php echo $status; ?></td>
                                     <td><?php echo $datecreated; ?></td>
@@ -91,9 +98,10 @@
                             <tfoot>
                             <tr>
                                 <th>Product Ordered</th>
-                                <th>Transcation Code</th>
+                                <th> Order Code</th>
+                                <th>Unit Price</th>
+                                <th>Quantity</th>
                                 <th>Total Price</th>
-
                                 <th>Status</th>
                                 <th>Date Created</th>
                             </tr>

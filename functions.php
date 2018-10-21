@@ -188,4 +188,35 @@
 		}
 	}
 
+function fill_product_list()
+{
+    global $db;
+    $query = "SELECT * FROM product";
+
+    $results = mysqli_query($db, $query);
+    $output = '';
+    foreach($results as $row)
+    {
+        $output .= '<option value="'.$row["id"].'">'.$row["name"].'</option>';
+    }
+    return $output;
+}
+
+function fetch_product_details($product_id)
+{
+    global $db;
+    $query = "SELECT * FROM product WHERE id = '".$product_id."'";
+    $results = mysqli_query($db, $query);
+    $output = '';
+    foreach($results as $row)
+    {
+        $output['product_name'] = $row["name"];
+        $output['category'] = $row["category"];
+        $output['price'] = $row['price'];
+        $output['quantity'] = $row['quantity'];
+    }
+
+    return $output;
+}
+
 ?>
