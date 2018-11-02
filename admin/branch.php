@@ -26,6 +26,9 @@
                         <div class="col-md-3">
                             <h3 class="box-title">Branch</h3>
                         </div>
+                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#addCustomer">Add
+                            New Customer
+                        </button>
 
                     </div>
                     <!-- /.box-header -->

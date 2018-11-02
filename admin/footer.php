@@ -21,16 +21,42 @@
 
                     <div class="form-group">
                         <label>Product Name</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="name">
+                        <input type="text" class="form-control" placeholder="Enter ..." name="name" required="required">
                     </div>
                     <div class="form-group">
                         <label>Selling Price</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="price">
+                        <input type="number" step="0.01" class="form-control" placeholder="Enter ..." name="price" required="required">
                     </div>
 
+<!--                    <div class="form-group">-->
+<!--                        <label>Quantity</label>-->
+<!--                        <input type="text" class="form-control" placeholder="Enter ..." name="qty">-->
+<!--                    </div>-->
+
                     <div class="form-group">
-                        <label>Quantity</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="qty">
+                        <label>Enter Product Quantity</label>
+                        <div class="input-group">
+                            <input type="text" name="qty" id="qty" class="form-control" required pattern="[+-]?([0-9]*[.])?[0-9]+" />
+                            <span class="input-group-addon">
+                                        <select name="product_unit" id="product_unit" required>
+                                            <option value="">Select Unit</option>
+                                            <option value="Bags">Bags</option>
+                                            <option value="Bottles">Bottles</option>
+                                            <option value="Box">Box</option>
+                                            <option value="Dozens">Dozens</option>
+                                            <option value="Feet">Feet</option>
+                                            <option value="Gallon">Gallon</option>
+                                            <option value="Grams">Grams</option>
+                                            <option value="Inch">Inch</option>
+                                            <option value="Kg">Kg</option>
+                                            <option value="Liters">Liters</option>
+                                            <option value="Meter">Meter</option>
+                                            <option value="Nos">Nos</option>
+                                            <option value="Packet">Packet</option>
+                                            <option value="Rolls">Rolls</option>
+                                        </select>
+                                    </span>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -48,13 +74,6 @@
 
                         </select>
                     </div>
-
-
-                    <div class="form-group">
-                        <label>Description</label>
-                        <textarea type="text" class="form-control" placeholder="Enter description" name="description"></textarea>
-                    </div>
-
 
                     <div class="box-footer">
                         <button type="submit" class="btn btn-default">Cancel</button>

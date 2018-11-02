@@ -54,7 +54,7 @@
                        <div class="box-footer">
                            <div class="input-group">
                                <input type="hidden" id="userID"  name="userID" value="<?php echo  $_SESSION['user']['id']; ?>">
-                               <input class="form-control" placeholder="Type message..." id="txtmsg" style="width: 350px" type="text" name="msg" >
+                               <input class="form-control" placeholder="Type message..." id="txtmsg" style="width: 350px" type="text" name="msg" required="required">
 
                                <div class="input-group-btn">
                                    <button type="button" class="btn btn-success" onclick="set_chat_msg()"><i class="fa fa-plus"></i></button>

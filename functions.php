@@ -176,17 +176,17 @@
 		return mysqli_real_escape_string($db, trim($val));
 	}
 
-	function display_error() {
-		global $errors;
+function display_error() {
+    global $errors;
 
-		if (count($errors) > 0){
-			echo '<div class="error">';
-				foreach ($errors as $error){
-					echo $error .'<br>';
-				}
-			echo '</div>';
-		}
-	}
+    if (count($errors) > 0){
+        echo '<div class="alert alert-danger">';
+        foreach ($errors as $error){
+            echo $error .'<br>';
+        }
+        echo '</div>';
+    }
+}
 
 function fill_product_list()
 {
@@ -213,7 +213,9 @@ function fetch_product_details($product_id)
         $output['product_name'] = $row["name"];
         $output['category'] = $row["category"];
         $output['price'] = $row['price'];
-        $output['quantity'] = $row['quantity'];
+        $output['quantity'] = $row['qty'];
+        $output['code']=$row['code'];
+
     }
 
     return $output;

@@ -8,8 +8,9 @@ if (isset($_POST["btn"])) {
     $description=$_POST['description'];
     $category=$_POST['category'];
     $code=$_POST['code'];
+    $product_unit=$_POST['product_unit'];
 
-    $query = "INSERT INTO `product`(`name`, `description`, `category`, `price`, `quantity`, `code`,`onhand_qty`) VALUES ('$name','$description','$category','$price','$qty','$code','$qty')";
+    $query = "INSERT INTO `product`(`name`, `description`, `category`, `price`, `qty`, `code`,`quantity_sold`,`product_unit`) VALUES ('$name','$description','$category','$price','$qty','$code',0,'$product_unit')";
     $run_insert=mysqli_query($conn,$query);
 
 

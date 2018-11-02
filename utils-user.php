@@ -34,9 +34,20 @@ if($totalAprOrders !=0)
 else{
     $approvedOrder=0;
 }
-$countChats="SELECT * FROM `chat` WHERE user_id='6'";
+$countChats="SELECT * FROM `chat`";
 $countC = mysqli_query($conn, $countChats);
 $totalChatsReceived=mysqli_num_rows($countC);
+
+
+$select1="SELECT sum(quantity) as total_order FROM `sales_order` where user_id='$userId'";
+$run_select1=mysqli_query($conn,$select1);
+$row1=mysqli_fetch_array($run_select1);
+$totalQuantity=$row1['total_order'];
+
+$select2="SELECT sum(qty)- sum(quantity_sold) as total_order FROM `product` ";
+$run_select2=mysqli_query($conn,$select2);
+$row2=mysqli_fetch_array($run_select2);
+$productInstock=$row2['total_order'];
 
 
 

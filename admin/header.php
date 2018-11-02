@@ -166,14 +166,7 @@
             </span>
                     </a>
                 </li>
-                <li>
-                    <a href="sales_report.php">
-                        <i class="fa fa-bank"></i> <span>Sales Report</span>
-                        <span class="pull-right-container">
 
-            </span>
-                    </a>
-                </li>
 
                 <li>
                     <a href="order.php">

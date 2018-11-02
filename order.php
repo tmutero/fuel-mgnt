@@ -187,7 +187,7 @@
 
                         <div class="box-footer">
                             <button type="submit" class="btn btn-default">Cancel</button>
-                            <button class="btn btn-info pull-right" type="button" id="btn" onclick="saveOrder()">Save</button>
+                            <button class="btn btn-info pull-right" type="button" id="btn" data-dismiss="modal" onclick="saveOrder()">Save</button>
                         </div>
 
 
@@ -240,7 +240,7 @@
 
             },
             function(data) {
-
+                $('#placeOrder').modal('hide');
                 $('#orderSuccess').html(data);
             });
     }
